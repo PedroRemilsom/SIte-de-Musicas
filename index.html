@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harmonia | Divulgação Musical</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar" id="sidebar">
+  <div class="logo-area">
+    <div class="logo-icon"><i class="fas fa-headphones-simple"></i></div>
+    <div class="logo-text">harmonia</div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Menu</div>
+    <a class="nav-item active" data-page="home"><i class="fas fa-house"></i> Início</a>
+    <a class="nav-item" data-page="explore"><i class="fas fa-compass"></i> Explorar</a>
+    <a class="nav-item" data-page="artists"><i class="fas fa-user-group"></i> Artistas</a>
+    <a class="nav-item" data-page="library"><i class="fas fa-bookmark"></i> Biblioteca</a>
+    <a class="nav-item" data-page="liked"><i class="fas fa-heart"></i> Curtidas</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Suas Playlists</div>
+    <div class="playlist-item" data-playlist="chill">
+      <div class="playlist-cover" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+        <i class="fas fa-moon"></i>
+      </div>
+      <span>Chill Vibes</span>
+    </div>
+    <div class="playlist-item" data-playlist="workout">
+      <div class="playlist-cover" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+        <i class="fas fa-fire"></i>
+      </div>
+      <span>Workout Mix</span>
+    </div>
+    <div class="playlist-item" data-playlist="focus">
+      <div class="playlist-cover" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+        <i class="fas fa-brain"></i>
+      </div>
+      <span>Deep Focus</span>
+    </div>
+    <div class="playlist-item" data-playlist="party">
+      <div class="playlist-cover" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+        <i class="fas fa-champagne-glasses"></i>
+      </div>
+      <span>Party Hits</span>
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-title">Descobrir</div>
+    <a class="nav-item" data-page="new"><i class="fas fa-sparkles"></i> Novidades</a>
+    <a class="nav-item" data-page="charts"><i class="fas fa-chart-line"></i> Top Charts</a>
+  </div>
+</aside>
+
+<!-- ============ MAIN CONTENT ============ -->
+<main class="main-content">
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    <div class="nav-arrows">
+      <button class="nav-arrow" id="navBack"><i class="fas fa-chevron-left"></i></button>
+      <button class="nav-arrow" id="navForward"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Buscar músicas, artistas, playlists...">
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="notifBtn" title="Notificações">
+        <i class="fas fa-bell"></i>
+        <span class="badge">3</span>
+      </button>
+      <button class="icon-btn" id="settingsBtn" title="Configurações">
+        <i class="fas fa-gear"></i>
+      </button>
+      <div class="user-profile">
+        <div class="avatar">PX</div>
+        <span class="user-name">Peter X.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PAGE: HOME ============ -->
+  <div class="page active" id="page-home">
+    <section class="hero-section">
+      <div class="featured-card">
+        <div>
+          <span class="featured-label"><i class="fas fa-star"></i> Em destaque</span>
+          <h1 class="featured-title">Midnight<br>Echoes</h1>
+          <div class="featured-artist">
+            <i class="fas fa-microphone-alt"></i> Luna Wave · Novo álbum
+          </div>
+          <div class="featured-meta">
+            <span><i class="fas fa-calendar"></i> 2024</span>
+            <span><i class="fas fa-music"></i> 12 faixas</span>
+            <span><i class="fas fa-clock"></i> 48 min</span>
+          </div>
+        </div>
+        <div class="play-area">
+          <button class="play-btn" id="featuredPlay">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="btn-secondary" id="featuredLike">
+            <i class="far fa-heart"></i> Curtir
+          </button>
+          <div class="wave">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="trending-section">
+        <div class="section-header">
+          <h3><i class="fas fa-fire"></i> Em alta</h3>
+          <a data-page="explore">Ver tudo</a>
+        </div>
+        <div class="track-list" id="trendingList"></div>
+      </div>
+    </section>
+
+    <section class="grid-section">
+      <div class="grid-header">
+        <h3><i class="fas fa-star"></i> Artistas em destaque</h3>
+        <a data-page="artists">Explorar todos <i class="fas fa-arrow-right" style="margin-left:6px;"></i></a>
+      </div>
+      <div class="cards-grid" id="artistsHomeGrid"></div>
+    </section>
+
+    <section class="grid-section">
+      <div class="grid-header">
+        <h3><i class="fas fa-list"></i> Playlists recomendadas</h3>
+        <a data-page="explore">Ver todas <i class="fas fa-arrow-right" style="margin-left:6px;"></i></a>
+      </div>
+      <div class="playlist-grid" id="playlistsHomeGrid"></div>
+    </section>
+  </div>
+
+  <!-- ============ PAGE: EXPLORE ============ -->
+  <div class="page" id="page-explore">
+    <h1 class="playlist-title">Explorar</h1>
+    <p class="playlist-description">Descubra novos sons, gêneros e artistas</p>
+    
+    <div class="category-filters" id="genreFilters">
+      <button class="filter-chip active" data-genre="all">Todos</button>
+      <button class="filter-chip" data-genre="pop">Pop</button>
+      <button class="filter-chip" data-genre="electronic">Eletrônico</button>
+      <button class="filter-chip" data-genre="indie">Indie</button>
+      <button class="filter-chip" data-genre="rnb">R&B</button>
+      <button class="filter-chip" data-genre="rock">Rock</button>
+      <button class="filter-chip" data-genre="hiphop">Hip Hop</button>
+    </div>
+
+    <div class="playlist-grid" id="explorePlaylists"></div>
+  </div>
+
+  <!-- ============ PAGE: ARTISTS ============ -->
+  <div class="page" id="page-artists">
+    <h1 class="playlist-title">Artistas</h1>
+    <p class="playlist-description">Conheça os artistas em ascensão</p>
+    <div class="cards-grid" id="artistsFullGrid"></div>
+  </div>
+
+  <!-- ============ PAGE: LIBRARY ============ -->
+  <div class="page" id="page-library">
+    <h1 class="playlist-title">Sua Biblioteca</h1>
+    <p class="playlist-description">Suas músicas, playlists e artistas favoritos</p>
+    <div class="playlist-grid" id="libraryGrid"></div>
+  </div>
+
+  <!-- ============ PAGE: LIKED ============ -->
+  <div class="page" id="page-liked">
+    <div class="playlist-hero">
+      <div class="playlist-hero-cover" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">
+        <i class="fas fa-heart"></i>
+      </div>
+      <div class="playlist-hero-info">
+        <div class="label">Playlist</div>
+        <h1>Músicas Curtidas</h1>
+        <div class="meta"><strong id="likedCount">0</strong> músicas · Você</div>
+        <div class="playlist-actions">
+          <button class="play-btn" id="playLikedBtn" style="width:54px;height:54px;font-size:1.3rem;"><i class="fas fa-play"></i></button>
+          <button class="btn-secondary"><i class="fas fa-shuffle"></i> Aleatório</button>
+        </div>
+      </div>
+    </div>
+    <div id="likedList"></div>
+  </div>
+
+  <!-- ============ PAGE: NEW ============ -->
+  <div class="page" id="page-new">
+    <h1 class="playlist-title">Novidades</h1>
+    <p class="playlist-description">Os últimos lançamentos da cena musical</p>
+    <div class="grid-section">
+      <div class="grid-header"><h3><i class="fas fa-sparkles"></i> Lançamentos da semana</h3></div>
+      <div class="cards-grid" id="newReleases"></div>
+    </div>
+    <div class="grid-section">
+      <div class="grid-header"><h3><i class="fas fa-album"></i> Álbuns novos</h3></div>
+      <div class="playlist-grid" id="newAlbums"></div>
+    </div>
+  </div>
+
+  <!-- ============ PAGE: CHARTS ============ -->
+  <div class="page" id="page-charts">
+    <div class="playlist-hero">
+      <div class="playlist-hero-cover" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <div class="playlist-hero-info">
+        <div class="label">Top Charts</div>
+        <h1>Top 50 Global</h1>
+        <div class="meta">As músicas mais tocadas do momento</div>
+        <div class="playlist-actions">
+          <button class="play-btn" id="playChartsBtn" style="width:54px;height:54px;font-size:1.3rem;"><i class="fas fa-play"></i></button>
+          <button class="btn-secondary"><i class="fas fa-shuffle"></i> Aleatório</button>
+        </div>
+      </div>
+    </div>
+    <div id="chartsList"></div>
+  </div>
+
+  <!-- ============ PAGE: PLAYLIST DETAIL ============ -->
+  <div class="page" id="page-playlist">
+    <div class="playlist-hero" id="playlistHero"></div>
+    <div id="playlistTracks"></div>
+  </div>
+</main>
+
+<!-- ============ PLAYER BAR ============ -->
+<div class="player-bar">
+  <div class="player-now">
+    <div class="player-cover" id="playerCover">
+      <i class="fas fa-music"></i>
+    </div>
+    <div class="player-info">
+      <h4 id="playerTitle">Selecione uma música</h4>
+      <p id="playerArtist">—</p>
+    </div>
+    <button class="player-like" id="playerLike"><i class="far fa-heart"></i></button>
+  </div>
+
+  <div class="player-controls">
+    <div class="player-buttons">
+      <button class="ctrl-btn" id="shuffleBtn" title="Aleatório"><i class="fas fa-shuffle"></i></button>
+      <button class="ctrl-btn" id="prevBtn" title="Anterior"><i class="fas fa-backward-step"></i></button>
+      <button class="ctrl-btn main-play" id="mainPlayBtn"><i class="fas fa-play"></i></button>
+      <button class="ctrl-btn" id="nextBtn" title="Próxima"><i class="fas fa-forward-step"></i></button>
+      <button class="ctrl-btn" id="repeatBtn" title="Repetir"><i class="fas fa-repeat"></i></button>
+    </div>
+    <div class="progress-container">
+      <span id="currentTime">0:00</span>
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span id="totalTime">0:00</span>
+    </div>
+  </div>
+
+  <div class="player-extras">
+    <button class="ctrl-btn" id="lyricsBtn" title="Letra"><i class="fas fa-microphone"></i></button>
+    <button class="ctrl-btn" title="Fila"><i class="fas fa-list"></i></button>
+    <div class="volume-container">
+      <i class="fas fa-volume-high" style="font-size:0.8rem;color:var(--text-muted);"></i>
+      <div class="volume-slider" id="volumeSlider">
+        <div class="volume-fill" id="volumeFill"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<!-- ============ TOASTS ============ -->
+<div class="toast-container" id="toastContainer"></div>
+<script src="js/script.js"></script>
+</body>
+</html>
